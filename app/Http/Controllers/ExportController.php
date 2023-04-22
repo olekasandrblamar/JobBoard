@@ -15,12 +15,13 @@ use App\Exports\TasksExport;
 use App\Exports\SubTaskExport;
 use App\Exports\SubTasksExport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Traits\GlobalTrait;
+// use App\Traits\GlobalTrait;
 use PDF;
 use View;
 
 class ExportController extends Controller
 {
+    // use GlobalTrait;
     public function wps()
     {
         $job_cards = JobCard::orderBy('updated_at', 'desc')->pluck('title', 'id')->all();
@@ -60,7 +61,7 @@ class ExportController extends Controller
             $file_name = strtotime(date('Y-m-d H:i:s')) . '_advertisement_template.docx';
             $headers = array(
                 "Content-type"=>"text/html",
-                "Content-Disposition"=>"attachment;Filename=".$job_card->title.".doc"
+                "Content-Disposition"=>"attachment;Filename=".str_replace(array("/", "\\", ":", "*", "?", "«", "<", ">", "|",","), "-", $job_card->title).".doc"
             );
     
             return response()->make($view, 200, $headers);        
@@ -105,7 +106,7 @@ class ExportController extends Controller
             $file_name = strtotime(date('Y-m-d H:i:s')) . '_advertisement_template.docx';
             $headers = array(
                 "Content-type"=>"text/html",
-                "Content-Disposition"=>"attachment;Filename=".$user_jobs->title.".doc"
+                "Content-Disposition"=>"attachment;Filename=".str_replace(array("/", "\\", ":", "*", "?", "«", "<", ">", "|",","), "-", $user_jobs->title).".doc"
             );
     
             return response()->make($view, 200, $headers);        
@@ -159,7 +160,7 @@ class ExportController extends Controller
             $file_name = strtotime(date('Y-m-d H:i:s')) . '_advertisement_template.docx';
             $headers = array(
                 "Content-type"=>"text/html",
-                "Content-Disposition"=>"attachment;Filename=".$task->title.".doc"
+                "Content-Disposition"=>"attachment;Filename=".str_replace(array("/", "\\", ":", "*", "?", "«", "<", ">", "|",","), "-", $task->title).".doc"
             );
 
             return response()->make($view, 200, $headers);        
@@ -204,7 +205,7 @@ class ExportController extends Controller
             $file_name = strtotime(date('Y-m-d H:i:s')) . '_advertisement_template.docx';
             $headers = array(
                 "Content-type"=>"text/html",
-                "Content-Disposition"=>"attachment;Filename=".$user_tasks->title.".doc"
+                "Content-Disposition"=>"attachment;Filename=".str_replace(array("/", "\\", ":", "*", "?", "«", "<", ">", "|",","), "-", $user_tasks->title).".doc"
             );
             return response()->make($view, 200, $headers);                
         }
@@ -241,7 +242,7 @@ class ExportController extends Controller
             $view = View::make('pdf.filter_sub', $data)->render();
             $headers = array(
                 "Content-type"=>"text/html",
-                "Content-Disposition"=>"attachment;Filename=".$sub_task->title.".doc"
+                "Content-Disposition"=>"attachment;Filename=".str_replace(array("/", "\\", ":", "*", "?", "«", "<", ">", "|",","), "-", $sub_task->title).".doc"
             );
 
             return response()->make($view, 200, $headers);
@@ -285,10 +286,9 @@ class ExportController extends Controller
             // return Excel::download(new JobCardExport($job_card->id), $job_card->title.'.xlsx');
 
             $view = View::make('pdf.filter_sub_by_user', $data)->render();
-            $file_name = strtotime(date('Y-m-d H:i:s')) . '_advertisement_template.docx';
             $headers = array(
                 "Content-type"=>"text/html",
-                "Content-Disposition"=>"attachment;Filename=".$user_sub_tasks->title.".doc"
+                "Content-Disposition"=>"attachment;Filename=".str_replace(array("/", "\\", ":", "*", "?", "«", "<", ">", "|",","), "-", $user_sub_tasks->title).".doc"
             );
     
             return response()->make($view, 200, $headers);

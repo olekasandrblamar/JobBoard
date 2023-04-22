@@ -1,11 +1,9 @@
 <?
-namespace App\Http\Traits;
+namespace App\Traits;
  
- use App\Models\Setting;
-  
- trait GlobalTrait {
+trait GlobalTrait {
       
-    function filter_tiltle($str)
+    public function filter_tiltle($str)
     {
         return  str_replace(array("/", "\\", ":", "*", "?", "«", "<", ">", "|",","), "-", $str);
     }

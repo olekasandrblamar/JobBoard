@@ -128,37 +128,22 @@
     </div>
 </div>
 
-<div class="modal fade" id="saveDlg" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal_title">{{ __('global.title') }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex-center" id="modal_body">
-                <p class="mb-0 mr-1">{{ __('global.order') }}</p>
-                <input id="current_order_number" placeholder="Enter Order number" class="form-control" name="order" type="text" value="">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('global.cancel') }}</button>
-                <button id="order_change_save" type="button" class="btn btn-primary">{{ __('global.save') }}</button>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
 
 @push('script')
 <script src="https://cdn.tiny.cloud/1/hfjeq7g8pi85dj8m7yuph7vcfrxud3livtrb5nrkb83678t3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('dist/vendor/bs5-toast/bs5-toast.js')}}"></script>
 <script>
-    // window.onbeforeunload = function (event) {
-    // // This will happen before leaving the page
-    // event.preventDefault();
-    //     console.log('adadf')
-    //     $('#saveDlg').modal('show');
-    //     return;
-    // }
+    window.onbeforeunload = function (event) {
+    // This will happen before leaving the page
+        return "Changes you made may not be saved.";
+
+        if (modified_inputs.size) {
+            const unsaved_changes_warning = "Changes you made may not be saved.";
+            evt.returnValue = unsaved_changes_warning;
+            return unsaved_changes_warning;
+        }
+    }
     function doSomething()
     {
         var status = $('#task_status').val();

@@ -129,4 +129,16 @@
 @endsection
 
 @push('script')
+<script>
+    window.onbeforeunload = function (event) {
+    // This will happen before leaving the page
+        return "Changes you made may not be saved.";
+
+        if (modified_inputs.size) {
+            const unsaved_changes_warning = "Changes you made may not be saved.";
+            evt.returnValue = unsaved_changes_warning;
+            return unsaved_changes_warning;
+        }
+    }
+</script>
 @endpush

@@ -45,9 +45,9 @@
 
                     <div class="col-lg-3 col-md-3 col-sm-12 txt-right">
                         <input type="hidden" name="export_type" value=""/>
-                        <button id="docBtn" type="submit" class="btn btn-outline-danger mr-1 mb-2"><i class="fa fa-file-word-o"></i> <span class="d-lg-inline-flex d-none">Doc</span></button>
-                        <button id="excelBtn" type="submit" class="btn btn-outline-danger mr-1 mb-2"><i class="fa fa-file-excel-o"></i> <span class="d-lg-inline-flex d-none">Excel</span></button>
-                        <button id="pdfBtn" type="submit" class="btn btn-outline-success mr-1 mb-2"><i class="fa fa-file-pdf-o"></i> <span class="d-lg-inline-flex d-none">PDF</span></button>
+                        <button id="docBtn" type="submit" class="btn btn-outline-primary mr-1 mb-2"><i class="fa fa-file-word-o"></i> <span class="d-lg-inline-flex d-none">Doc</span></button>
+                        <button id="excelBtn" type="submit" class="btn btn-outline-success mr-1 mb-2"><i class="fa fa-file-excel-o"></i> <span class="d-lg-inline-flex d-none">Excel</span></button>
+                        <button id="pdfBtn" type="submit" class="btn btn-outline-danger mr-1 mb-2"><i class="fa fa-file-pdf-o"></i> <span class="d-lg-inline-flex d-none">PDF</span></button>
                     </div>
                 </form>
             </div>
@@ -60,9 +60,9 @@
                         </div>
                         <div class="ml-1">
                             <input type="hidden" name="user_export_type" value=""/>
-                            <button id="userDocBtn" type="submit" class="btn btn-outline-danger mr-1 mb-2"><i class="fa fa-file-word-o"></i> <span class="d-lg-inline-flex d-none">Doc by Selected User</span></a>
-                            <button id="userExcelBtn" type="submit" class="btn btn-outline-danger mr-1 mb-2"><i class="fa fa-file-excel-o"></i> <span class="d-lg-inline-flex d-none">Excel by Selected User</span></a>
-                            <button id="userPdfBtn" type="submit" class="btn btn-outline-success mr-1 mb-2"><i class="fa fa-file-pdf-o"></i> <span class="d-lg-inline-flex d-none">PDF by Seleted User</span></a>
+                            <button id="userDocBtn" type="submit" class="btn btn-outline-primary mr-1 mb-2"><i class="fa fa-file-word-o"></i> <span class="d-lg-inline-flex d-none">Doc by Selected User</span></a>
+                            <button id="userExcelBtn" type="submit" class="btn btn-outline-success mr-1 mb-2"><i class="fa fa-file-excel-o"></i> <span class="d-lg-inline-flex d-none">Excel by Selected User</span></a>
+                            <button id="userPdfBtn" type="submit" class="btn btn-outline-danger mr-1 mb-2"><i class="fa fa-file-pdf-o"></i> <span class="d-lg-inline-flex d-none">PDF by Seleted User</span></a>
                         </div>
                     </div>
                 </form>                

@@ -190,6 +190,16 @@
 <script src="https://cdn.tiny.cloud/1/hfjeq7g8pi85dj8m7yuph7vcfrxud3livtrb5nrkb83678t3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('dist/vendor/bs5-toast/bs5-toast.js')}}"></script>
 <script>
+    window.onbeforeunload = function (event) {
+    // This will happen before leaving the page
+        return "Changes you made may not be saved.";
+
+        if (modified_inputs.size) {
+            const unsaved_changes_warning = "Changes you made may not be saved.";
+            evt.returnValue = unsaved_changes_warning;
+            return unsaved_changes_warning;
+        }
+    }
     // basic picker
     flatpickr(".f-basic", {
         allowInput: true
